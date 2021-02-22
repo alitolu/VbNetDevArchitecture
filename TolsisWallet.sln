@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TolsisWallet.Entity", "TolsisWallet.Entity\TolsisWallet.Entity.vbproj", "{A6EB1E19-F177-4E36-9E6C-2427B463BC28}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TolsisWallet.DAL", "TolsisWallet.DAL\TolsisWallet.DAL.vbproj", "{A539B4B9-5112-462C-8376-0D6958C875B9}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TolsisWallet.Core", "TolsisWallet.Core\TolsisWallet.Core.vbproj", "{ECD66819-7B8D-46BA-B13B-D9AEBBE20309}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TolsisWallet.Business", "TolsisWallet.Business\TolsisWallet.Business.vbproj", "{52B13C70-0768-4293-BC6D-CC6EFA534F2C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6EB1E19-F177-4E36-9E6C-2427B463BC28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6EB1E19-F177-4E36-9E6C-2427B463BC28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6EB1E19-F177-4E36-9E6C-2427B463BC28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6EB1E19-F177-4E36-9E6C-2427B463BC28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A539B4B9-5112-462C-8376-0D6958C875B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A539B4B9-5112-462C-8376-0D6958C875B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A539B4B9-5112-462C-8376-0D6958C875B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A539B4B9-5112-462C-8376-0D6958C875B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECD66819-7B8D-46BA-B13B-D9AEBBE20309}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECD66819-7B8D-46BA-B13B-D9AEBBE20309}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECD66819-7B8D-46BA-B13B-D9AEBBE20309}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECD66819-7B8D-46BA-B13B-D9AEBBE20309}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52B13C70-0768-4293-BC6D-CC6EFA534F2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52B13C70-0768-4293-BC6D-CC6EFA534F2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52B13C70-0768-4293-BC6D-CC6EFA534F2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52B13C70-0768-4293-BC6D-CC6EFA534F2C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A9251A39-361D-4F8B-A6E8-D59491A9DC55}
+	EndGlobalSection
+EndGlobal
