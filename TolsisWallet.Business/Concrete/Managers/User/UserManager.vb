@@ -22,6 +22,9 @@ Namespace Business.Concrete.Managers
         Public Function Update(user As User) As User Implements IUserService.Update
             Return _userDal.Update(user)
         End Function
+        Public Function GetByUserNameAndPassword(email As String, password As String) As User Implements IUserService.GetByUserNameAndPassword
+            Return _userDal.Get(Function(u) u.Email = email And u.PasswordSalt Is password)
+        End Function
 
     End Class
 
