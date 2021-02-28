@@ -13,9 +13,7 @@ Namespace Core.Utilities.Security.Hashing
         Public Shared Function VerifyPasswordHash(ByVal password As String, ByVal passwordHash As Byte(), ByVal passwordSalt As Byte()) As Boolean
             Using hmac = New Cryptography.HMACSHA512(passwordSalt)
                 Dim computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password))
-
                 For i As Integer = 0 To computedHash.Length - 1
-
                     If computedHash(i) <> passwordHash(i) Then
                         Return False
                     End If

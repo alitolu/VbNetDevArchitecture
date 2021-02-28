@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TolsisWallet.Entity", "TolsisWallet.Entity\TolsisWallet.Entity.vbproj", "{A6EB1E19-F177-4E36-9E6C-2427B463BC28}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "TolsisWallet.Entity", "TolsisWallet.Entity\TolsisWallet.Entity.vbproj", "{A6EB1E19-F177-4E36-9E6C-2427B463BC28}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TolsisWallet.DAL", "TolsisWallet.DAL\TolsisWallet.DAL.vbproj", "{A539B4B9-5112-462C-8376-0D6958C875B9}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "TolsisWallet.DAL", "TolsisWallet.DAL\TolsisWallet.DAL.vbproj", "{A539B4B9-5112-462C-8376-0D6958C875B9}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TolsisWallet.Core", "TolsisWallet.Core\TolsisWallet.Core.vbproj", "{ECD66819-7B8D-46BA-B13B-D9AEBBE20309}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "TolsisWallet.Core", "TolsisWallet.Core\TolsisWallet.Core.vbproj", "{ECD66819-7B8D-46BA-B13B-D9AEBBE20309}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TolsisWallet.Business", "TolsisWallet.Business\TolsisWallet.Business.vbproj", "{52B13C70-0768-4293-BC6D-CC6EFA534F2C}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "TolsisWallet.Business", "TolsisWallet.Business\TolsisWallet.Business.vbproj", "{52B13C70-0768-4293-BC6D-CC6EFA534F2C}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TolsisWallet.WebAPI", "TolsisWallet.WebAPI\TolsisWallet.WebAPI.vbproj", "{61382BBA-9CDD-422E-AD2E-39A1BBA9B68D}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TolsisWallet.WebUI", "TolsisWallet.WebUI\TolsisWallet.WebUI.vbproj", "{319EB6B2-4319-4E31-A8CC-BAEC75924E84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{52B13C70-0768-4293-BC6D-CC6EFA534F2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52B13C70-0768-4293-BC6D-CC6EFA534F2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52B13C70-0768-4293-BC6D-CC6EFA534F2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61382BBA-9CDD-422E-AD2E-39A1BBA9B68D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61382BBA-9CDD-422E-AD2E-39A1BBA9B68D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61382BBA-9CDD-422E-AD2E-39A1BBA9B68D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61382BBA-9CDD-422E-AD2E-39A1BBA9B68D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{319EB6B2-4319-4E31-A8CC-BAEC75924E84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{319EB6B2-4319-4E31-A8CC-BAEC75924E84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{319EB6B2-4319-4E31-A8CC-BAEC75924E84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{319EB6B2-4319-4E31-A8CC-BAEC75924E84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

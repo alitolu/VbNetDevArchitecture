@@ -4,6 +4,7 @@ Imports Microsoft.Extensions.Configuration
 Imports Microsoft.IdentityModel.Tokens
 Imports TolsisWallet.Core.Core.Entities.Concrete
 Imports TolsisWallet.Core.Core.Utilities.Security.Encyption
+Imports TolsisWallet.Core.Core.Extensions
 
 Namespace Core.Utilities.Security.Jwt
     Public Class JwtHelper
@@ -21,10 +22,10 @@ Namespace Core.Utilities.Security.Jwt
         End Function
         Private Function SetClaims(ByVal user As User, ByVal operationClaims As List(Of OperationClaim)) As IEnumerable(Of Claim)
             Dim claims = New List(Of Claim)()
-            'claims.AddNameIdentifier(user.Id.ToString())
-            'claims.AddEmail(user.Email)
-            'claims.AddName($"{user.FirstName} {user.LastName}")
-            'claims.AddRoles(operationClaims.[Select](Function(c) c.Name).ToArray())
+            claims.AddNameIdentifier(user.Id.ToString())
+            claims.AddEmail(user.Email)
+            claims.AddName($"{user.FirstName} {user.LastName}")
+            claims.AddRoles(operationClaims.[Select](Function(c) c.Name).ToArray())
             Return claims
         End Function
         Public Function CreateToken(user As User, operationClaims As List(Of Entities.Concrete.OperationClaim)) As AccessToken Implements ITokenHelper.CreateToken
