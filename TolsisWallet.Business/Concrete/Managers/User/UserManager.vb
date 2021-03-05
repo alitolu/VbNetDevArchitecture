@@ -6,7 +6,7 @@ Namespace Business.Concrete.Managers
     Public Class UserManager
         Implements IUserService
 
-        Private _userDal As IUserDal
+        Private ReadOnly _userDal As IUserDal
         Public Sub New(ByVal userDal As IUserDal)
             _userDal = userDal
         End Sub
@@ -23,9 +23,11 @@ Namespace Business.Concrete.Managers
             Return _userDal.Update(user)
         End Function
         Public Function GetByUserNameAndPassword(email As String, password As String) As User Implements IUserService.GetByUserNameAndPassword
-            Return _userDal.Get(Function(u) u.Email = email And u.PasswordSalt Is password)
+            Return _userDal.Get(Function(u) u.Email = email And u.PasswordSalt = password)
         End Function
-
+        Public Function GetClaims(user As User) As List(Of OperationClaim) Implements IUserService.GetClaims
+            Return _userDal.GetClaims(user)
+        End Function
     End Class
 
 End Namespace

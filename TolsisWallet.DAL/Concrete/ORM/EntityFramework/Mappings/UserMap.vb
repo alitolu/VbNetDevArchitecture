@@ -12,7 +12,7 @@ Namespace DataAccess.Concrete.EntityFramework.Mappings
             [Property](Function(x) x.PasswordSalt).HasColumnName("Password")
             [Property](Function(x) x.FirstName).HasColumnName("FirstName")
             [Property](Function(x) x.LastName).HasColumnName("LastName")
-            [Property](Function(x) x.Status).HasColumnName("Status")
+            '[Property](Function(x) x.Status).HasColumnName("Status")
         End Sub
 
     End Class

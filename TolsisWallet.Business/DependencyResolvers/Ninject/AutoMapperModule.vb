@@ -6,9 +6,8 @@ Namespace Business.DependencyResolvers.Ninject
         Inherits NinjectModule
 
         Public Overrides Sub Load()
-            Bind(Of IMapper)().ToConstant(CreateConfiguration().CreateMapper()).InSingletonScope()
+            Call Bind(Of IMapper)().ToConstant(CreateConfiguration().CreateMapper()).InSingletonScope()
         End Sub
-
         Private Function CreateConfiguration() As MapperConfiguration
             Dim config = New MapperConfiguration(Sub(cfg) cfg.AddProfiles(MyBase.GetType().Assembly))
             Return config

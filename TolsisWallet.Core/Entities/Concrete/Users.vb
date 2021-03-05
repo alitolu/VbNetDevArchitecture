@@ -7,9 +7,10 @@ Namespace Core.Entities.Concrete
         Public Property FirstName As String
         Public Property LastName As String
         Public Property Email As String
-        Public Property PasswordSalt As Byte()
-        Public Property PasswordHash As Byte()
-        Public Property Status As Boolean
+        Public Property PasswordSalt As String
+
+        'Public Property PasswordHash As Byte()
+        'Public Property Status As Boolean
 
     End Class
 
