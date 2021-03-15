@@ -1,4 +1,4 @@
-﻿Namespace Core.Utilities.Results
+﻿Namespace Utilities.Results
     Public Class DataResult(Of T)
         Inherits Result
         Implements IDataResult(Of T)

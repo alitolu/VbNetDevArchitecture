@@ -1,4 +1,4 @@
-﻿Namespace Core.Utilities.Security.Jwt
+﻿Namespace Utilities.Security.Jwt
     Public Class TokenOptions
         Public Property Audience As String
         Public Property Issuer As String

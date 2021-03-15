@@ -1,4 +1,4 @@
-﻿Namespace Core.Utilities.Results
+﻿Namespace Utilities.Results
     Public Class ErrorDataResult(Of T)
         Inherits DataResult(Of T)
         Public Sub New(ByVal data As T, ByVal message As String)

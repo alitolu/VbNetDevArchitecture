@@ -2,7 +2,7 @@
 Imports System.Runtime.InteropServices
 Imports System.Security
 
-Namespace Core.Utilities.Security.Hashing
+Namespace Utilities.Security.Hashing
     Public Class HashingHelper
         Public Shared Sub CreatePasswordHash(ByVal password As String, <Out> ByRef passwordHash As Byte(), <Out> ByRef passwordSalt As Byte())
             Using hmac = New Cryptography.HMACSHA512()

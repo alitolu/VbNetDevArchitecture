@@ -5,7 +5,7 @@ Imports System.Web.Routing
 Imports Ninject
 Imports Ninject.Modules
 
-Namespace Core.Utilities.Mvc.Infrastructure
+Namespace Utilities.Mvc.Infrastructure
     Public Class NinjectControllerFactory
         Inherits DefaultControllerFactory
 
@@ -20,10 +20,6 @@ Namespace Core.Utilities.Mvc.Infrastructure
             End Set
         End Property
 
-        'Public Sub New(ByVal kernel As IKernel)
-        '    Me.Kernel = kernel
-        'End Sub
-
         Public Sub New(ParamArray modules As INinjectModule())
             _Kernel = New StandardKernel(modules)
         End Sub
@@ -33,14 +29,6 @@ Namespace Core.Utilities.Mvc.Infrastructure
             Return controller
         End Function
 
-        'Private _kernel As IKernel
-
-        'Public Sub New(ParamArray modules As INinjectModule())
-        '    _kernel = New StandardKernel(modules)
-        'End Sub
-        'Protected Overrides Function GetControllerInstance(ByVal requestContext As RequestContext, ByVal controllerType As Type) As IController
-        '    Return If(controllerType Is Nothing, Nothing, CType(_kernel.Get(controllerType), IController))
-        'End Function
     End Class
 
 End Namespace

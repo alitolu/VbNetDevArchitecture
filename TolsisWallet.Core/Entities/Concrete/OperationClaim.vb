@@ -1,4 +1,4 @@
-﻿Namespace Core.Entities.Concrete
+﻿Namespace Entities.Concrete
     Public Class OperationClaim
         Public Property Id As Integer
         Public Property Name As String

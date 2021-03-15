@@ -1,30 +1,40 @@
 ﻿Imports System
+Imports System.Web.Mvc
+Imports FluentValidation.Mvc
 Imports TolsisWallet.Business.Business.Abstract
 Imports TolsisWallet.Business.Business.DependencyResolvers.Ninject
-Imports TolsisWallet.Entity.Entities.Concrete
+Imports TolsisWallet.Business.Business.ValidationRules.FluentValidation
+Imports TolsisWallet.Core
+Imports TolsisWallet.Core.CrossCuttingConcerns.Validation
+Imports TolsisWallet.Core.Entities.Concrete
+
 
 Module Module1
 
-    Private ReadOnly _authService As IAuthService
-
-
+    <ValidationAspect(GetType(UserValidator))>
     Sub Main(args As String())
-        'Try
-        Dim memberService = InstanceFactory.GetInstance(Of IAuthService)()
-            Dim _UserForLoginDto As New UserForLoginDto
-        _UserForLoginDto.Email = "asdas"
-        _UserForLoginDto.Password = "asdasdasd"
-        Dim userToLogin = memberService.Login(_UserForLoginDto)
 
-        If userToLogin.Success = True Then
-            MsgBox("kullanıcı giriş yaptı")
-        Else
-            MsgBox("kullanıcı bulunamadı")
-        End If
+        Dim msg As String = ""
 
-        'Catch ex As Exception
-        '    MsgBox(Err.Description)
-        'End Try
+        Dim _User As New User
+
+        Try
+
+            Dim _usermanager = InstanceFactory.GetInstance(Of IUserService)()
+
+            _User.FirstName = ""
+            _User.LastName = ""
+            _User.Email = ""
+            _User.PasswordSalt = ""
+
+            Dim _userAdd = _usermanager.Add(_User)
+            msg = _userAdd.Id
+
+        Catch ex As Exception
+            msg = ex.Message
+        End Try
+
+        MsgBox(msg)
 
     End Sub
 

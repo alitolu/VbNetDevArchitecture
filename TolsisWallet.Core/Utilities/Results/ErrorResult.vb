@@ -1,4 +1,4 @@
-﻿Namespace Core.Utilities.Results
+﻿Namespace Utilities.Results
     Public Class ErrorResult
         Inherits Result
         Public Sub New(ByVal message As String)

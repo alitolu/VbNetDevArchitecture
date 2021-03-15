@@ -1,4 +1,4 @@
-﻿Namespace Core.Utilities.Results
+﻿Namespace Utilities.Results
     Public Interface IResult
         ReadOnly Property Success As Boolean
         ReadOnly Property Message As String

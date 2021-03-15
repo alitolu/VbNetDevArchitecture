@@ -2,8 +2,9 @@
 Imports System.Collections.Generic
 Imports System.Linq.Expressions
 Imports System.Data.Entity
+Imports TolsisWallet.Core.Core.DataAccess
 
-Namespace Core.DataAccess.EntityFramework
+Namespace DataAccess.EntityFramework
     Public Class EfEntityRepositoryBase(Of TEntity As {Class, IEntity, New}, TContext As {DbContext, New})
         Implements IEntityRepository(Of TEntity)
         Private Function GetList(Optional filter As Expression(Of Func(Of TEntity, Boolean)) = Nothing) As List(Of TEntity) Implements IEntityRepository(Of TEntity).GetList

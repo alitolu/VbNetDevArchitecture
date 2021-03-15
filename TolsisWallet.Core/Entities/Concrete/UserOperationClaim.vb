@@ -1,6 +1,6 @@
 ﻿Imports TolsisWallet.Core.Core.DataAccess
 
-Namespace Core.Entities.Concrete
+Namespace Entities.Concrete
     Public Class UserOperationClaim
         Implements IEntity
         Public Property Id As Integer

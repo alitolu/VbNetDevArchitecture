@@ -1,5 +1,5 @@
 ﻿Imports System.Data.Entity.ModelConfiguration
-Imports TolsisWallet.Core.Core.Entities.Concrete
+Imports TolsisWallet.Core.Entities.Concrete
 
 Namespace DataAccess.Concrete.EntityFramework.Mappings
     Public Class UserMap

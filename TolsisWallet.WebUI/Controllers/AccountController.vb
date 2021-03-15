@@ -1,7 +1,7 @@
-﻿Imports System.Web.Mvc
-Imports Ninject
+﻿
 Imports TolsisWallet.Business.Business.Abstract
 Imports TolsisWallet.Business.Business.DependencyResolvers.Ninject
+Imports TolsisWallet.Core.Entities.Concrete
 Imports TolsisWallet.Entity.Entities.Concrete
 
 Namespace Controllers
@@ -11,14 +11,9 @@ Namespace Controllers
         Function Login() As ActionResult
             Return View()
         End Function
-
-        'Private ReadOnly _authService As IAuthService
-
-        '<Inject()>
-        'Public Sub New(authService As IAuthService)
-        '    _authService = authService
-        'End Sub
-
+        Function Register() As ActionResult
+            Return View()
+        End Function
         <HttpPost()>
         Public Function Login(ByVal userForLoginDto As UserForLoginDto) As ActionResult
 
@@ -28,19 +23,13 @@ Namespace Controllers
 
                 Dim _authService = InstanceFactory.GetInstance(Of IAuthService)()
 
-                Dim userToLogin = _authService.Login(userForLoginDto)
+                Dim user = _authService.Login(userForLoginDto)
 
-                If Not userToLogin.Success = True Then
+                If Not user.Success = True Then
                     msg = "error"
                 Else
                     msg = "ok"
                 End If
-
-                Dim result = _authService.CreateAccessToken(userToLogin.Data)
-
-                'If result.Success Then
-                '    msg = "ok"
-                'End If
 
             Catch ex As Exception
                 msg = ex.Message
@@ -51,5 +40,28 @@ Namespace Controllers
                }, JsonRequestBehavior.AllowGet)
 
         End Function
+
+        <HttpPost()>
+        Public Function Register(ByVal user As User) As ActionResult
+
+            Dim msg As String = ""
+
+            Try
+
+                Dim _usermanager = InstanceFactory.GetInstance(Of IUserService)()
+
+                Dim _user = _usermanager.Add(user)
+                msg = _user.Id
+
+            Catch ex As Exception
+                msg = ex.Message
+            End Try
+
+            Return Json(New With {
+                   .msg = msg
+               }, JsonRequestBehavior.AllowGet)
+
+        End Function
+
     End Class
 End Namespace

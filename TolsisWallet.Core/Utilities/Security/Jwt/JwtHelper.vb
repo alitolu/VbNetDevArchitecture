@@ -2,11 +2,11 @@
 Imports System.Security.Claims
 Imports Microsoft.Extensions.Configuration
 Imports Microsoft.IdentityModel.Tokens
-Imports TolsisWallet.Core.Core.Entities.Concrete
-Imports TolsisWallet.Core.Core.Utilities.Security.Encyption
+Imports TolsisWallet.Core.Entities.Concrete
+Imports TolsisWallet.Core.Utilities.Security.Encyption
 Imports TolsisWallet.Core.Core.Extensions
 
-Namespace Core.Utilities.Security.Jwt
+Namespace Utilities.Security.Jwt
     Public Class JwtHelper
         Implements ITokenHelper
         Public ReadOnly Property Configuration As IConfiguration
@@ -16,8 +16,23 @@ Namespace Core.Utilities.Security.Jwt
             configuration = configuration
             _tokenOptions = configuration.GetSection("TokenOptions")
         End Sub
-        Public Function CreateJwtSecurityToken(ByVal tokenOptions As TokenOptions, ByVal user As User, ByVal signingCredentials As SigningCredentials, ByVal operationClaims As System.Collections.Generic.List(Of OperationClaim)) As JwtSecurityToken
-            Dim jwt = New JwtSecurityToken(issuer:=tokenOptions.Issuer, audience:=tokenOptions.Audience, expires:=Me._accessTokenExpiration, notBefore:=System.DateTime.Now, claims:=Me.SetClaims(user, operationClaims), signingCredentials:=signingCredentials)
+        'Public Function CreateJwtSecurityToken(ByVal tokenOptions As TokenOptions, ByVal user As User, ByVal signingCredentials As SigningCredentials, ByVal operationClaims As System.Collections.Generic.List(Of OperationClaim)) As JwtSecurityToken
+        '    Dim jwt = New JwtSecurityToken(
+        '        issuer:=tokenOptions.Issuer,
+        '                                   audience:=tokenOptions.Audience,
+        '                                   expires:=Me._accessTokenExpiration,
+        '                                   notBefore:=System.DateTime.Now,
+        '                                   claims:=Me.SetClaims(user, operationClaims),
+        '                                   signingCredentials:=signingCredentials)
+        '    Return jwt
+        'End Function
+        Public Function CreateJwtSecurityToken(ByVal tokenOptions As TokenOptions, ByVal user As User, ByVal signingCredentials As SigningCredentials) As JwtSecurityToken
+            Dim jwt = New JwtSecurityToken(
+                issuer:=tokenOptions.Issuer,
+                                           audience:=tokenOptions.Audience,
+                                           expires:=Me._accessTokenExpiration,
+                                           notBefore:=System.DateTime.Now,
+                                           signingCredentials:=signingCredentials)
             Return jwt
         End Function
         Private Function SetClaims(ByVal user As User, ByVal operationClaims As List(Of OperationClaim)) As IEnumerable(Of Claim)
@@ -28,17 +43,39 @@ Namespace Core.Utilities.Security.Jwt
             claims.AddRoles(operationClaims.[Select](Function(c) c.Name).ToArray())
             Return claims
         End Function
-        Public Function CreateToken(user As User, operationClaims As List(Of Entities.Concrete.OperationClaim)) As AccessToken Implements ITokenHelper.CreateToken
+        'Public Function CreateToken(user As User,
+        '                            operationClaims As List(Of Entities.Concrete.OperationClaim)) As AccessToken Implements ITokenHelper.CreateToken
+
+        '    _accessTokenExpiration = System.DateTime.Now.AddMinutes(Me._tokenOptions.AccessTokenExpiration)
+
+        '    Dim securityKey = SecurityKeyHelper.CreateSecurityKey(Me._tokenOptions.SecurityKey)
+        '    Dim signingCredentials = SigningCredentialsHelper.CreateSigningCredentials(securityKey)
+        '    Dim jwt = CreateJwtSecurityToken(Me._tokenOptions, user, signingCredentials, operationClaims)
+        '    Dim jwtSecurityTokenHandler = New JwtSecurityTokenHandler()
+        '    Dim token = jwtSecurityTokenHandler.WriteToken(jwt)
+
+        '    Return New AccessToken With {
+        '        .Token = token,
+        '        .Expiration = Me._accessTokenExpiration
+        '    }
+
+        'End Function
+
+        Public Function CreateToken(user As User) As AccessToken Implements ITokenHelper.CreateToken
+
             _accessTokenExpiration = System.DateTime.Now.AddMinutes(Me._tokenOptions.AccessTokenExpiration)
+
             Dim securityKey = SecurityKeyHelper.CreateSecurityKey(Me._tokenOptions.SecurityKey)
             Dim signingCredentials = SigningCredentialsHelper.CreateSigningCredentials(securityKey)
-            Dim jwt = CreateJwtSecurityToken(Me._tokenOptions, user, signingCredentials, operationClaims)
+            Dim jwt = CreateJwtSecurityToken(Me._tokenOptions, user, signingCredentials)
             Dim jwtSecurityTokenHandler = New JwtSecurityTokenHandler()
             Dim token = jwtSecurityTokenHandler.WriteToken(jwt)
+
             Return New AccessToken With {
                 .Token = token,
                 .Expiration = Me._accessTokenExpiration
             }
+
         End Function
     End Class
 

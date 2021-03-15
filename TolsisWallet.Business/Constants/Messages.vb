@@ -8,4 +8,5 @@
         Public AccessTokenCreated As String = "Access token başarıyla oluşturuldu"
         Public AuthorizationDenied As String = "Yetkiniz yok"
     End Module
+
 End Namespace

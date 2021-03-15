@@ -1,7 +1,8 @@
 ﻿Imports System.Data.Entity
 Imports System.Linq
+Imports TolsisWallet.Core.Core.DataAccess
 
-Namespace Core.DataAccess.EntityFramework
+Namespace DataAccess.EntityFramework
     Public Class EfQueryableRepository(Of T As {Class, IEntity, New})
         Implements IQueryableRepository(Of T)
         Private _context As DbContext

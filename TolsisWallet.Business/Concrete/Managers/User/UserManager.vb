@@ -1,6 +1,10 @@
 ﻿Imports TolsisWallet.Business.Business.Abstract
 Imports TolsisWallet.DAL.DataAccess.Abstract
-Imports TolsisWallet.Core.Core.Entities.Concrete
+Imports TolsisWallet.Core.Entities.Concrete
+Imports TolsisWallet.Core
+Imports TolsisWallet.Business.Business.ValidationRules.FluentValidation
+Imports TolsisWallet.Core.Aspects.Autofac.Caching
+Imports System.Web.UI
 
 Namespace Business.Concrete.Managers
     Public Class UserManager
@@ -16,6 +20,10 @@ Namespace Business.Concrete.Managers
         Public Function GetById(id As Integer) As User Implements IUserService.GetById
             Throw New NotImplementedException()
         End Function
+
+        '<LogAspect(GetType(FileLogger))>
+        '<CacheAspect()>
+        <ValidationAspect(GetType(UserValidator))>
         Public Function Add(user As User) As User Implements IUserService.Add
             Return _userDal.Add(user)
         End Function
@@ -25,9 +33,7 @@ Namespace Business.Concrete.Managers
         Public Function GetByUserNameAndPassword(email As String, password As String) As User Implements IUserService.GetByUserNameAndPassword
             Return _userDal.Get(Function(u) u.Email = email And u.PasswordSalt = password)
         End Function
-        Public Function GetClaims(user As User) As List(Of OperationClaim) Implements IUserService.GetClaims
-            Return _userDal.GetClaims(user)
-        End Function
+
     End Class
 
 End Namespace

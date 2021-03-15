@@ -1,4 +1,4 @@
-﻿Namespace Core.Utilities.Security.Jwt
+﻿Namespace Utilities.Security.Jwt
     Public Class AccessToken
         Public Property Token As String
         Public Property Expiration As Date
