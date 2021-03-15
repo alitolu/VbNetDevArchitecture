@@ -6,9 +6,7 @@ Imports TolsisWallet.Core.Utilities.Messages
 
 Public Class ValidationAspect
     Inherits MethodInterception
-
     Private _validatorType As Type
-
     Public Sub New(ByVal validatorType As Type)
 
         If Not GetType(IValidator).IsAssignableFrom(validatorType) Then
@@ -17,7 +15,6 @@ Public Class ValidationAspect
 
         _validatorType = validatorType
     End Sub
-
     Protected Overrides Sub OnBefore(ByVal invocation As IInvocation)
 
         Dim validator = CType(Activator.CreateInstance(_validatorType), IValidator)

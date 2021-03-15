@@ -11,14 +11,20 @@ End Code
 
         $("#Register").click(function () {
 
-            var txtEmail = $("#email").val();
-            var txtPass = $("#password").val();
-
+            var email = $("#email").val();
+            var password = $("#password").val();
+            var repassword = $("#repassword").val();
+            var firstname = $("#firstname").val();
+            var lastname = $("#lastname").val();
+            var phone = $("#phone").val();
+           
             var user = {
-                email: txtEmail,
-                password: txtPass,
-                FirstName: '',
-                LastName: ''
+                Email: email,
+                PasswordSalt: password,
+                PasswordVerify: repassword,
+                FirstName: firstname,
+                LastName: lastname,
+                MobilePhone: phone
             }
 
             $.ajax({
@@ -56,11 +62,15 @@ End Code
                 </div>
                 <div class="form-group">
                     <label>Adı</label>
-                    <input name="firstname" id="firstname" class="form-control" placeholder="Adınız " type="text">
+                    <input name="firstname" id="firstname" class="form-control" placeholder="Adınız" type="text">
                 </div>
                 <div class="form-group">
                     <label>Soy Adı</label>
                     <input name="lastname" id="lastname" class="form-control" placeholder="Soy isminiz" type="text">
+                </div>
+                <div class="form-group">
+                    <label>Cep Telefonu</label>
+                    <input name="phone" id="phone" class="form-control" placeholder="cep telefonu" type="text">
                 </div>
                 <div class="form-group">
                     <label>Şifre</label>

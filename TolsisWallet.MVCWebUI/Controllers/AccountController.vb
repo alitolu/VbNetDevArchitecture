@@ -30,8 +30,6 @@ Namespace Controllers
 
             Try
 
-                'Dim _authService = InstanceFactory.GetInstance(Of IAuthService)()
-
                 Dim user = _authService.Login(userForLoginDto)
 
                 If Not user.Success = True Then
@@ -57,12 +55,11 @@ Namespace Controllers
 
             Try
 
-                'Dim _usermanager = InstanceFactory.GetInstance(Of IUserService)()
                 Dim _user = _usermanager.Add(user)
                 msg = _user.Id
 
             Catch ex As Exception
-                msg = ex.Message
+                msg = Err.Description
             End Try
 
             Return Json(New With {
